@@ -56,10 +56,10 @@
     { label: "Mirror-gloss finish", cat: "paint", size: "span-4", img: "assets/ba-after.jpg" },
     { label: "Golf cart detail", cat: "exterior", size: "span-4", img: "assets/service-cart.jpg" },
     { label: "Off-road RZR", cat: "exterior", size: "span-8", img: "assets/service-offroad.jpg" },
-    { label: "Interior detail", cat: "interior", size: "span-4" },
-    { label: "Cockpit detail", cat: "interior", size: "span-4" },
-    { label: "Foam wash", cat: "foam", size: "span-4" },
-    { label: "Deep gloss finish", cat: "paint", size: "span-4" },
+    { label: "Paint correction", cat: "paint", size: "span-4", img: "assets/paint-4.jpg" },
+    { label: "Window tint", cat: "exterior", size: "span-4", img: "assets/tint-1.jpg" },
+    { label: "Machine polish", cat: "paint", size: "span-4", img: "assets/paint-1.jpg" },
+    { label: "Tint application", cat: "exterior", size: "span-4", img: "assets/tint-3.jpg" },
     { label: "Foam bath", cat: "foam", size: "span-4" },
   ];
 
