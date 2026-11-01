@@ -193,6 +193,36 @@
     $$("#navMobile .m-trigger").forEach((btn) =>
       btn.addEventListener("click", () => btn.closest(".m-group").classList.toggle("open"))
     );
+
+    // desktop dropdowns: open on CLICK (not hover) — styles set directly for reliability
+    const navItems = $$(".nav-desktop .nav-item.has-dd");
+    const setDD = (item, open) => {
+      const dd = $(".dropdown", item);
+      const trig = $(".nav-trigger", item);
+      item.classList.toggle("open", open);
+      if (trig) trig.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!dd) return;
+      dd.style.opacity = open ? "1" : "0";
+      dd.style.visibility = open ? "visible" : "hidden";
+      dd.style.transform = open ? "translateX(-50%) translateY(0)" : "translateX(-50%) translateY(10px)";
+    };
+    navItems.forEach((item) => {
+      const trig = $(".nav-trigger", item);
+      if (!trig) return;
+      setDD(item, false);
+      trig.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const willOpen = !item.classList.contains("open");
+        navItems.forEach((i) => setDD(i, false));
+        setDD(item, willOpen);
+      });
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".nav-desktop .nav-item.has-dd")) navItems.forEach((i) => setDD(i, false));
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") navItems.forEach((i) => setDD(i, false));
+    });
   }
 
   /* ============================================================= GALLERY */
