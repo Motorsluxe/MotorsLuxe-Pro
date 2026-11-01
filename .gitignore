@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+
+# Source originals / working files (kept locally, not deployed)
+No BG Image - 2026 copy.svg
+IMG_*.jpg
+Screenshot*.png
+assets/ba-after.webp
+
+# Dev notes (optional on the live site)
+# README.md

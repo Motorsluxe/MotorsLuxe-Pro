@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://motorsluxe.pro/sitemap.xml
