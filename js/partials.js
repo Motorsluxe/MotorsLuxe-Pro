@@ -23,7 +23,7 @@
   var page = location.pathname.split("/").pop() || "index.html";
   var isActive = function (href) { return href.split("#")[0] === page ? ' class="active"' : ""; };
   var ddLinks = function (arr) {
-    return arr.map(function (i) { return '<a href="' + i.href + '"' + isActive(i.href) + ">" + i.label + "</a>"; }).join("");
+    return arr.map(function (i) { return '<a href="' + i.href + '"' + isActive(i.href) + ">- " + i.label + "</a>"; }).join("");
   };
 
   // --- HEADER ---
