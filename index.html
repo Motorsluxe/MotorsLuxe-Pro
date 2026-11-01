@@ -63,43 +63,10 @@
 </head>
 
 <body>
-  <!-- deploy-check-1793569458 -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============================================================= HEADER -->
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a class="brand" href="#hero" aria-label="MotorsLuxe Pro home">
-        <img src="assets/logo.png" alt="MotorsLuxe Pro" class="brand-logo" />
-      </a>
-
-      <nav class="nav-desktop" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#experience">Experience</a>
-        <a href="#process">How It Works</a>
-        <a href="#area">Service Area</a>
-        <a href="#about">About</a>
-      </nav>
-
-      <a class="btn btn-gold btn-sm nav-book" data-book href="#book">Book Your Detail</a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Mobile drawer -->
-    <div class="nav-mobile" id="navMobile" aria-hidden="true">
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#experience">Experience</a>
-      <a href="#process">How It Works</a>
-      <a href="#area">Service Area</a>
-      <a href="#about">About</a>
-      <a class="btn btn-gold" data-book href="#book">Book Your Detail</a>
-    </div>
-  </header>
+  <!-- Shared header (built by js/partials.js) -->
+  <div id="mlx-header"></div>
 
   <main id="main">
 
@@ -109,7 +76,6 @@
         <!-- Drop your cinematic hero video at assets/hero.mp4 (and optional assets/hero.webm).
              Until then an elegant gradient backdrop shows automatically. -->
         <video class="hero-video" autoplay muted loop playsinline>
-          <source src="assets/hero.webm" type="video/webm" />
           <source src="assets/hero.mp4" type="video/mp4" />
         </video>
         <div class="hero-overlay"></div>
@@ -200,7 +166,7 @@
               <p>Showroom-quality interior and exterior detailing for your car, truck, or SUV —
                 hand washing, paint care, and meticulous interior restoration.</p>
               <div class="service-actions">
-                <button class="link-more" data-more="auto">Learn More <i>→</i></button>
+                <a class="link-more" href="detailing-automobile.html">Learn More <i>→</i></a>
                 <a class="btn btn-ghost btn-sm" data-book href="#book">Request a Quote</a>
               </div>
             </div>
@@ -214,7 +180,7 @@
               <p>Keep your cart pristine with specialized cleaning and protection — perfect for
                 island living and the Lowcountry lifestyle.</p>
               <div class="service-actions">
-                <button class="link-more" data-more="cart">Learn More <i>→</i></button>
+                <a class="link-more" href="detailing-golf-carts.html">Learn More <i>→</i></a>
                 <a class="btn btn-ghost btn-sm" data-book href="#book">Request a Quote</a>
               </div>
             </div>
@@ -228,7 +194,7 @@
               <p>Deep cleaning and restoration for RZRs, ATVs, and trucks — because the adventure
                 shouldn't end with hours of cleanup.</p>
               <div class="service-actions">
-                <button class="link-more" data-more="offroad">Learn More <i>→</i></button>
+                <a class="link-more" href="detailing-off-road.html">Learn More <i>→</i></a>
                 <a class="btn btn-ghost btn-sm" data-book href="#book">Request a Quote</a>
               </div>
             </div>
@@ -468,75 +434,14 @@
 
   </main>
 
-  <!-- ============================================================= FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="assets/logo.png" alt="MotorsLuxe Pro" class="footer-logo" />
-        <p>Luxury mobile automotive detailing, delivered to your door throughout Charleston,
-          South Carolina. The very best products for the very best clients.</p>
-        <div class="social" id="socialLinks"><!-- built from config --></div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#services">Automobile Detailing</a>
-        <a href="#services">Golf Cart Detailing</a>
-        <a href="#services">Off-Road Detailing</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Service Areas</h4>
-        <a href="#area">Charleston</a>
-        <a href="#area">Mount Pleasant</a>
-        <a href="#area">Daniel Island</a>
-        <a href="#area">Summerville</a>
-        <a href="#area">Kiawah &amp; Seabrook</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a data-call id="footerPhone" href="#">Call / Text</a>
-        <a data-email id="footerEmail" href="#">Email Us</a>
-        <a data-book href="#book">Book Your Detail</a>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>© <span id="year"></span> MotorsLuxe Pro™. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="privacy.html">Privacy Policy</a>
-        <span>Charleston, SC</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ============================================================= MOBILE BOOK BAR -->
-  <div class="mobile-bar">
-    <a class="btn btn-ghost btn-sm" data-call href="#">Call</a>
-    <a class="btn btn-gold btn-sm" data-book href="#book">Book Your Detail</a>
-  </div>
-
-  <!-- ============================================================= SERVICE MODAL -->
-  <div class="modal" id="serviceModal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-panel">
-      <button class="modal-close" data-close aria-label="Close">×</button>
-      <div class="modal-media media-slot" data-label="Service photo"></div>
-      <div class="modal-content" id="modalContent"></div>
-    </div>
-  </div>
-
-  <!-- ============================================================= LIGHTBOX -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" data-close aria-label="Close">×</button>
-    <div class="lightbox-inner" id="lightboxInner"></div>
-  </div>
+  <!-- Shared footer, mobile book bar & lightbox (built by js/partials.js) -->
+  <div id="mlx-footer"></div>
 
   <!-- ===================== Scripts ===================== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="js/site-config.js?v=4" defer></script>
-  <script src="js/main.js?v=4" defer></script>
+  <script src="js/partials.js?v=5" defer></script>
+  <script src="js/site-config.js?v=5" defer></script>
+  <script src="js/main.js?v=5" defer></script>
 </body>
 </html>

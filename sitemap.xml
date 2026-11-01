@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://motorsluxe.pro/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://motorsluxe.pro/privacy.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
+  <url><loc>https://motorsluxe.pro/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://motorsluxe.pro/our-story.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://motorsluxe.pro/gallery.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://motorsluxe.pro/detailing-automobile.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://motorsluxe.pro/detailing-golf-carts.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://motorsluxe.pro/detailing-off-road.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://motorsluxe.pro/services-window-tint.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://motorsluxe.pro/services-paint-correction.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://motorsluxe.pro/services-headlight-restoration.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://motorsluxe.pro/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

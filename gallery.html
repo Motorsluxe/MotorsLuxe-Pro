@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <title>Gallery | MotorsLuxe Pro™ — Charleston, SC</title>
+  <meta name="description" content="A showcase of MotorsLuxe Pro's work — exotic finishes, flawless interiors, and the art of the perfect detail across Charleston, South Carolina." />
+  <link rel="canonical" href="https://motorsluxe.pro/gallery.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="MotorsLuxe Pro" />
+  <meta property="og:title" content="Gallery | MotorsLuxe Pro" />
+  <meta property="og:description" content="A showcase of craftsmanship — MotorsLuxe Pro detailing in Charleston, SC." />
+  <meta property="og:url" content="https://motorsluxe.pro/gallery.html" />
+  <meta property="og:image" content="https://motorsluxe.pro/assets/service-auto.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="mlx-header"></div>
+
+  <main id="main">
+    <section class="page-hero" style="min-height:48vh">
+      <div class="page-hero-bg" style="background-image:url('assets/service-auto.jpg')"></div>
+      <div class="hero-overlay"></div>
+      <div class="grain"></div>
+      <div class="container">
+        <p class="breadcrumb reveal"><a href="index.html">Home</a> / <span>Gallery</span></p>
+        <h1 class="reveal">The Portfolio</h1>
+        <p class="lead reveal">A showcase of craftsmanship — exotic finishes, flawless interiors, and the
+          art of the perfect detail.</p>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery" style="padding-top:clamp(50px,7vw,90px)">
+      <div class="container">
+        <div class="gallery-filters reveal" id="galleryFilters">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="exterior">Exterior</button>
+          <button class="chip" data-filter="interior">Interior</button>
+          <button class="chip" data-filter="paint">Paint &amp; Finish</button>
+          <button class="chip" data-filter="foam">Foam Wash</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"><!-- built by js/main.js --></div>
+        <p class="section-lead reveal" style="text-align:center;margin-top:40px">
+          Want your vehicle featured here? <a href="#book" data-book style="color:var(--gold)">Book your detail.</a></p>
+      </div>
+    </section>
+
+    <section class="section book-cta" id="book">
+      <div class="grain"></div>
+      <div class="container book-inner reveal">
+        <p class="eyebrow">Ready When You Are</p>
+        <h2 class="display-xl">Book Your Detail.</h2>
+        <p class="book-lead">Request your appointment and personalized quote — we'll bring the MotorsLuxe
+          experience to your door.</p>
+        <div class="book-actions">
+          <a class="btn btn-gold btn-lg" data-book href="#">Request Your Appointment</a>
+          <a class="btn btn-ghost btn-lg" data-call href="#">Call or Text Us</a>
+        </div>
+        <p class="book-note" id="bookNote"></p>
+      </div>
+    </section>
+  </main>
+
+  <div id="mlx-footer"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/partials.js?v=5" defer></script>
+  <script src="js/site-config.js?v=5" defer></script>
+  <script src="js/main.js?v=5" defer></script>
+</body>
+</html>

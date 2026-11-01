@@ -50,16 +50,17 @@
 
   /* ------------------------------------------------- Gallery items */
   // category: exterior | interior | paint | foam. Add real photos later (see README).
+  // Add real photos with an `img` path; leave it off for an elegant placeholder.
   const GALLERY = [
-    { label: "Exotic exterior", cat: "exterior", size: "span-8", tall: false },
-    { label: "Interior detail", cat: "interior", size: "span-4", tall: false },
-    { label: "Paint finish", cat: "paint", size: "span-4", tall: false },
-    { label: "Foam wash", cat: "foam", size: "span-4", tall: false },
-    { label: "Luxury profile", cat: "exterior", size: "span-4", tall: false },
-    { label: "Cockpit detail", cat: "interior", size: "span-8", tall: false },
-    { label: "Deep gloss finish", cat: "paint", size: "span-4", tall: false },
-    { label: "Wheels & calipers", cat: "exterior", size: "span-4", tall: false },
-    { label: "Foam bath", cat: "foam", size: "span-4", tall: false },
+    { label: "Brabus G-Wagon", cat: "exterior", size: "span-8", img: "assets/service-auto.jpg" },
+    { label: "Mirror-gloss finish", cat: "paint", size: "span-4", img: "assets/ba-after.jpg" },
+    { label: "Golf cart detail", cat: "exterior", size: "span-4", img: "assets/service-cart.jpg" },
+    { label: "Off-road RZR", cat: "exterior", size: "span-8", img: "assets/service-offroad.jpg" },
+    { label: "Interior detail", cat: "interior", size: "span-4" },
+    { label: "Cockpit detail", cat: "interior", size: "span-4" },
+    { label: "Foam wash", cat: "foam", size: "span-4" },
+    { label: "Deep gloss finish", cat: "paint", size: "span-4" },
+    { label: "Foam bath", cat: "foam", size: "span-4" },
   ];
 
   /* ============================================================= CONFIG WIRING */
@@ -188,17 +189,22 @@
         document.body.style.overflow = "";
       })
     );
+    // mobile dropdown accordions
+    $$("#navMobile .m-trigger").forEach((btn) =>
+      btn.addEventListener("click", () => btn.closest(".m-group").classList.toggle("open"))
+    );
   }
 
   /* ============================================================= GALLERY */
   function buildGallery() {
     const grid = $("#galleryGrid");
     if (!grid) return;
-    grid.innerHTML = GALLERY.map((g) =>
-      `<div class="gallery-item ${g.size} ${g.tall ? "tall" : ""}" data-cat="${g.cat}">
-         <div class="media-slot" data-label="${g.label}"></div>
-       </div>`
-    ).join("");
+    grid.innerHTML = GALLERY.map((g) => {
+      const slot = g.img
+        ? `<div class="media-slot has-img" style="background-image:url('${g.img}');background-size:cover;background-position:center;"></div>`
+        : `<div class="media-slot" data-label="${g.label}"></div>`;
+      return `<div class="gallery-item ${g.size} ${g.tall ? "tall" : ""}" data-cat="${g.cat}" data-img="${g.img || ""}" data-label="${g.label}">${slot}</div>`;
+    }).join("");
 
     // Filters
     $$("#galleryFilters .chip").forEach((chip) =>
@@ -218,16 +224,19 @@
     const lbInner = $("#lightboxInner");
     $$(".gallery-item", grid).forEach((item) =>
       item.addEventListener("click", () => {
-        const label = $(".media-slot", item).dataset.label;
-        lbInner.innerHTML = `<div class="media-slot" data-label="${label}"></div>`;
+        const img = item.dataset.img;
+        const label = item.dataset.label;
+        lbInner.innerHTML = img
+          ? `<div class="media-slot has-img" style="background-image:url('${img}');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#000"></div>`
+          : `<div class="media-slot" data-label="${label}"></div>`;
         openOverlay(lb);
       })
     );
   }
 
   /* ============================================================= MODAL / LIGHTBOX */
-  function openOverlay(el) { el.classList.add("open"); el.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; }
-  function closeOverlay(el) { el.classList.remove("open"); el.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
+  function openOverlay(el) { if (!el) return; el.classList.add("open"); el.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; }
+  function closeOverlay(el) { if (!el) return; el.classList.remove("open"); el.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
 
   function initModals() {
     const modal = $("#serviceModal");
