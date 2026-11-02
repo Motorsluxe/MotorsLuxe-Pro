@@ -54,13 +54,16 @@
   const GALLERY = [
     { label: "Brabus G-Wagon", cat: "exterior", size: "span-8", img: "assets/service-auto.jpg" },
     { label: "Mirror-gloss finish", cat: "paint", size: "span-4", img: "assets/ba-after.jpg" },
+    { label: "Porsche Cayenne interior", cat: "interior", size: "span-4", img: "assets/interior-1.jpg" },
+    { label: "Foam wash", cat: "foam", size: "span-8", img: "assets/foam-1.jpg" },
     { label: "Golf cart detail", cat: "exterior", size: "span-4", img: "assets/service-cart.jpg" },
-    { label: "Off-road RZR", cat: "exterior", size: "span-8", img: "assets/service-offroad.jpg" },
+    { label: "Off-road RZR", cat: "exterior", size: "span-4", img: "assets/service-offroad.jpg" },
+    { label: "Cayenne cabin", cat: "interior", size: "span-4", img: "assets/interior-3.jpg" },
     { label: "Paint correction", cat: "paint", size: "span-4", img: "assets/paint-4.jpg" },
     { label: "Window tint", cat: "exterior", size: "span-4", img: "assets/tint-1.jpg" },
     { label: "Machine polish", cat: "paint", size: "span-4", img: "assets/paint-1.jpg" },
+    { label: "Interior detail", cat: "interior", size: "span-4", img: "assets/interior-2.jpg" },
     { label: "Tint application", cat: "exterior", size: "span-4", img: "assets/tint-3.jpg" },
-    { label: "Foam bath", cat: "foam", size: "span-4" },
   ];
 
   /* ============================================================= CONFIG WIRING */
