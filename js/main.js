@@ -65,7 +65,7 @@
     { label: "Interior detail", cat: "interior", size: "span-4", img: "assets/interior-2.jpg" },
     { label: "Tint application", cat: "exterior", size: "span-4", img: "assets/tint-3.jpg" },
     { label: "Yukon side profile", cat: "paint", size: "span-4", img: "assets/gmc-2.jpg" },
-    { label: "Mobile detail tent", cat: "exterior", size: "span-8", img: "assets/audi-tent.jpg" },
+    { label: "Mobile detail tent", cat: "exterior", size: "span-8", img: "assets/audi-tent.jpg?v=2" },
   ];
 
   /* ============================================================= CONFIG WIRING */
