@@ -346,7 +346,11 @@ section[id], [id] { scroll-margin-top: 92px; }
 .gallery-item.hide { display: none; }
 
 /* ---------------------------------------------------------------- instagram */
-.insta-feed { min-height: 40px; }
+.insta-feed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.insta-feed a { position: relative; display: block; aspect-ratio: 1; overflow: hidden; border-radius: 4px; }
+.insta-feed img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s, opacity 0.4s; }
+.insta-feed a:hover img { transform: scale(1.05); opacity: 0.8; }
+@media (max-width: 600px) { .insta-feed { grid-template-columns: repeat(2, 1fr); } }
 .insta-cta { text-align: center; margin-top: 36px; }
 
 /* ---------------------------------------------------------------- experience */
