@@ -160,15 +160,14 @@
     const widget = $("#reviewsWidget");
     const empty = $("#reviewsEmpty");
     if (!widget || !empty) return;
-    let tries = 0;
+    // The widget loads lazily (on scroll), so watch for it instead of polling briefly.
     const check = () => {
-      tries++;
-      const h = widget.getBoundingClientRect().height;
-      const hasContent = h > 60 || widget.querySelector("[class*='ti-'], iframe, img");
-      if (hasContent) { empty.style.display = "none"; return; }
-      if (tries < 12) setTimeout(check, 1000); // keep checking ~12s
+      if (widget.getBoundingClientRect().height > 60) { empty.style.display = "none"; return true; }
+      return false;
     };
-    setTimeout(check, 1500);
+    if (check()) return;
+    const obs = new MutationObserver(() => { if (check()) obs.disconnect(); });
+    obs.observe(widget, { childList: true, subtree: true });
   }
 
   /* ============================================================= NAVIGATION */
