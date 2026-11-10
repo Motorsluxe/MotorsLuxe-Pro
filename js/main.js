@@ -49,23 +49,18 @@
   // We intentionally do NOT list prices, packages, or warranties unless you provide them.
 
   /* ------------------------------------------------- Gallery items */
-  // category: exterior | interior | paint | foam. Add real photos later (see README).
-  // Add real photos with an `img` path; leave it off for an elegant placeholder.
+  // category: exterior | interior | paint. Each item is a video in assets/videos/
+  // (name.mp4 + name.jpg poster).
   const GALLERY = [
-    { label: "GMC Yukon AT4", cat: "exterior", size: "span-8", img: "assets/gmc-3.jpg" },
-    { label: "Mirror-gloss finish", cat: "paint", size: "span-4", img: "assets/gmc-1.jpg" },
-    { label: "Porsche Cayenne interior", cat: "interior", size: "span-4", img: "assets/interior-1.jpg" },
-    { label: "Foam wash", cat: "foam", size: "span-8", img: "assets/foam-1.jpg" },
-    { label: "Golf cart detail", cat: "exterior", size: "span-4", img: "assets/service-cart.jpg" },
-    { label: "Off-road RZR", cat: "exterior", size: "span-4", img: "assets/service-offroad.jpg" },
-    { label: "Cayenne cabin", cat: "interior", size: "span-4", img: "assets/interior-3.jpg" },
-    { label: "Paint correction", cat: "paint", size: "span-4", img: "assets/paint-4.jpg" },
-    { label: "Window tint", cat: "exterior", size: "span-4", img: "assets/tint-1.jpg" },
-    { label: "Machine polish", cat: "paint", size: "span-4", img: "assets/paint-1.jpg" },
-    { label: "Interior detail", cat: "interior", size: "span-4", img: "assets/interior-2.jpg" },
-    { label: "Tint application", cat: "exterior", size: "span-4", img: "assets/tint-3.jpg" },
-    { label: "Yukon side profile", cat: "paint", size: "span-4", img: "assets/gmc-2.jpg" },
-    { label: "Mobile detail tent", cat: "exterior", size: "span-8", img: "assets/audi-tent.jpg?v=2" },
+    { label: "Machine polish", cat: "paint", vid: "polish" },
+    { label: "GMC Sierra front", cat: "exterior", vid: "gmc-blue-front" },
+    { label: "Porsche Cayenne cockpit", cat: "interior", vid: "porsche-cockpit" },
+    { label: "Tesla Model 3", cat: "exterior", vid: "tesla-exterior" },
+    { label: "Porsche Cayenne vents", cat: "interior", vid: "porsche-vent" },
+    { label: "GMC side profile", cat: "exterior", vid: "gmc-blue-side" },
+    { label: "Tesla cabin", cat: "interior", vid: "tesla-interior" },
+    { label: "Porsche Cayenne floors", cat: "interior", vid: "porsche-floor" },
+    { label: "GMC cabin", cat: "interior", vid: "gmc-interior" },
   ];
 
   /* ============================================================= CONFIG WIRING */
@@ -156,17 +151,18 @@
 
   /* ============================================================= REVIEWS FALLBACK */
   // Hide the "building our reviews" fallback once the live widget renders content.
-  /* ============================================================= JOURNEY VIDEO */
-  // Only download/play the Instagram-section video while it's on screen.
-  function initJourneyVideo() {
-    const v = $("#journeyVideo");
-    if (!v || !("IntersectionObserver" in window)) return;
-    new IntersectionObserver((entries) => {
+  /* ============================================================= INLINE VIDEOS */
+  // Only download/play muted inline videos while they're on screen.
+  function initAutoplayVideos() {
+    const vids = $$("video[data-autoplay]");
+    if (!vids.length || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
-        if (e.isIntersecting) v.play().catch(() => {});
-        else v.pause();
+        if (e.isIntersecting) e.target.play().catch(() => {});
+        else e.target.pause();
       });
-    }, { threshold: 0.25 }).observe(v);
+    }, { threshold: 0.25 });
+    vids.forEach((v) => io.observe(v));
   }
 
   function initReviewsFallback() {
@@ -247,10 +243,10 @@
     const grid = $("#galleryGrid");
     if (!grid) return;
     grid.innerHTML = GALLERY.map((g) => {
-      const slot = g.img
-        ? `<div class="media-slot has-img" style="background-image:url('${g.img}');background-size:cover;background-position:center;"></div>`
-        : `<div class="media-slot" data-label="${g.label}"></div>`;
-      return `<div class="gallery-item ${g.size} ${g.tall ? "tall" : ""}" data-cat="${g.cat}" data-img="${g.img || ""}" data-label="${g.label}">${slot}</div>`;
+      const src = `assets/videos/${g.vid}`;
+      return `<div class="gallery-item" data-cat="${g.cat}" data-vid="${src}" data-label="${g.label}">
+        <video muted loop playsinline preload="none" poster="${src}.jpg" data-autoplay aria-label="${g.label}"><source src="${src}.mp4" type="video/mp4" /></video>
+      </div>`;
     }).join("");
 
     // Filters
@@ -271,11 +267,8 @@
     const lbInner = $("#lightboxInner");
     $$(".gallery-item", grid).forEach((item) =>
       item.addEventListener("click", () => {
-        const img = item.dataset.img;
-        const label = item.dataset.label;
-        lbInner.innerHTML = img
-          ? `<div class="media-slot has-img" style="background-image:url('${img}');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#000"></div>`
-          : `<div class="media-slot" data-label="${label}"></div>`;
+        const src = item.dataset.vid;
+        lbInner.innerHTML = `<video class="lightbox-video" controls autoplay playsinline poster="${src}.jpg"><source src="${src}.mp4" type="video/mp4" /></video>`;
         openOverlay(lb);
       })
     );
@@ -283,7 +276,10 @@
 
   /* ============================================================= MODAL / LIGHTBOX */
   function openOverlay(el) { if (!el) return; el.classList.add("open"); el.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; }
-  function closeOverlay(el) { if (!el) return; el.classList.remove("open"); el.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
+  function closeOverlay(el) {
+    if (!el) return;
+    if (el.id === "lightbox") { const inner = $("#lightboxInner"); if (inner) inner.innerHTML = ""; } // stop video
+    el.classList.remove("open"); el.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
 
   function initModals() {
     const modal = $("#serviceModal");
@@ -408,9 +404,9 @@
   document.addEventListener("DOMContentLoaded", () => {
     applyConfig();
     initReviewsFallback();
-    initJourneyVideo();
     initNav();
     buildGallery();
+    initAutoplayVideos();
     initModals();
     initBeforeAfter();
     initMotion();

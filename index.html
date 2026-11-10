@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css?v=16" />
+  <link rel="stylesheet" href="css/styles.css?v=17" />
 
   <!-- ===================== Local Business Schema (SEO) ===================== -->
   <script type="application/ld+json">
@@ -238,16 +238,13 @@
             interiors, and the art of the perfect wash.</p>
         </header>
 
-        <div class="gallery-filters reveal" id="galleryFilters">
-          <button class="chip is-active" data-filter="all">All</button>
-          <button class="chip" data-filter="exterior">Exterior</button>
-          <button class="chip" data-filter="interior">Interior</button>
-          <button class="chip" data-filter="paint">Paint &amp; Finish</button>
-          <button class="chip" data-filter="foam">Foam Wash</button>
+        <div class="portfolio-feature reveal">
+          <video muted loop playsinline preload="none" data-autoplay poster="assets/videos/polish.jpg" aria-label="Machine polishing a vehicle">
+            <source src="assets/videos/polish.mp4" type="video/mp4" />
+          </video>
         </div>
-
-        <div class="gallery-grid" id="galleryGrid">
-          <!-- Populated by js/main.js. Replace labels with real photos/videos. -->
+        <div class="portfolio-cta reveal">
+          <a class="btn btn-gold" href="gallery.html">View the Full Gallery</a>
         </div>
       </div>
     </section>
@@ -263,7 +260,7 @@
         </header>
 
         <a class="insta-video reveal" data-instagram href="#" aria-label="Watch more on Instagram">
-          <video id="journeyVideo" muted loop playsinline preload="none" poster="assets/journey-poster.jpg">
+          <video id="journeyVideo" muted loop playsinline preload="none" data-autoplay poster="assets/journey-poster.jpg">
             <source src="assets/journey.mp4" type="video/mp4" />
           </video>
           <span class="insta-video-tag">@motorsluxepro</span>
@@ -445,8 +442,8 @@
   <!-- ===================== Scripts ===================== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="js/partials.js?v=16" defer></script>
-  <script src="js/site-config.js?v=16" defer></script>
-  <script src="js/main.js?v=16" defer></script>
+  <script src="js/partials.js?v=17" defer></script>
+  <script src="js/site-config.js?v=17" defer></script>
+  <script src="js/main.js?v=17" defer></script>
 </body>
 </html>

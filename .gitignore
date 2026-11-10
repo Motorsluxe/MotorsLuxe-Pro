@@ -9,3 +9,7 @@ assets/ba-after.webp
 
 # Dev notes (optional on the live site)
 # README.md
+
+# Raw video originals (compressed copies live in assets/)
+_videos_src/
+IMG_*.mov
