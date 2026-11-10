@@ -169,6 +169,7 @@ section[id], [id] { scroll-margin-top: 92px; }
 .feature-copy h2 { margin-bottom: 1.3rem; }
 .feature-copy p { color: var(--gray); margin-bottom: 1.1rem; max-width: 56ch; }
 .feature-media .media-slot { aspect-ratio: 4/3; }
+.feature-video { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 15%; background: var(--charcoal); }
 
 /* includes checklist */
 .includes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 34px; margin: 1.4rem 0 2rem; }
