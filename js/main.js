@@ -52,15 +52,32 @@
   // category: exterior | interior | paint. Each item is a video in assets/videos/
   // (name.mp4 + name.jpg poster).
   const GALLERY = [
+    { label: "Ferrari 488", cat: "exterior", vid: "ferrari-front" },
     { label: "Machine polish", cat: "paint", vid: "polish" },
-    { label: "GMC Sierra front", cat: "exterior", vid: "gmc-blue-front" },
     { label: "Porsche Cayenne cockpit", cat: "interior", vid: "porsche-cockpit" },
-    { label: "Tesla Model 3", cat: "exterior", vid: "tesla-exterior" },
-    { label: "Porsche Cayenne vents", cat: "interior", vid: "porsche-vent" },
-    { label: "GMC side profile", cat: "exterior", vid: "gmc-blue-side" },
+    { label: "Chevy Silverado", cat: "exterior", vid: "chevy-front" },
+    { label: "GMC hood gloss", cat: "paint", vid: "gmc-hood-gloss" },
+    { label: "Ferrari 488 interior", cat: "interior", vid: "ferrari-interior" },
+    { label: "GMC Sierra front", cat: "exterior", vid: "gmc-blue-front" },
+    { label: "Porsche Cayenne gloss", cat: "paint", vid: "porsche-gloss-side" },
     { label: "Tesla cabin", cat: "interior", vid: "tesla-interior" },
-    { label: "Porsche Cayenne floors", cat: "interior", vid: "porsche-floor" },
+    { label: "Ferrari 488 profile", cat: "exterior", vid: "ferrari-side" },
+    { label: "GMC Yukon", cat: "exterior", vid: "yukon-front" },
+    { label: "Porsche Cayenne steering", cat: "interior", vid: "porsche-steering" },
+    { label: "Tesla Model 3", cat: "exterior", vid: "tesla-exterior" },
+    { label: "Chevy Silverado grille", cat: "exterior", vid: "chevy-grille" },
+    { label: "Porsche Cayenne vents", cat: "interior", vid: "porsche-vent" },
+    { label: "Porsche Cayenne wheels", cat: "exterior", vid: "porsche-wheel-arch" },
+    { label: "Ferrari 488 front", cat: "exterior", vid: "ferrari-front-angle" },
     { label: "GMC cabin", cat: "interior", vid: "gmc-interior" },
+    { label: "GMC Yukon profile", cat: "exterior", vid: "yukon-side" },
+    { label: "Chevy Silverado side", cat: "exterior", vid: "chevy-side" },
+    { label: "Porsche Cayenne floors", cat: "interior", vid: "porsche-floor" },
+    { label: "GMC side profile", cat: "exterior", vid: "gmc-blue-side" },
+    { label: "Porsche wheel", cat: "exterior", vid: "porsche-wheel" },
+    { label: "Porsche Cayenne mats", cat: "interior", vid: "porsche-floor-mats" },
+    { label: "Chevy Silverado rear", cat: "exterior", vid: "chevy-rear" },
+    { label: "Audi Q5 floor mat", cat: "interior", vid: "audi-q5-mat" },
   ];
 
   /* ============================================================= CONFIG WIRING */
