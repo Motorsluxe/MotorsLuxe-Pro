@@ -156,6 +156,19 @@
 
   /* ============================================================= REVIEWS FALLBACK */
   // Hide the "building our reviews" fallback once the live widget renders content.
+  /* ============================================================= JOURNEY VIDEO */
+  // Only download/play the Instagram-section video while it's on screen.
+  function initJourneyVideo() {
+    const v = $("#journeyVideo");
+    if (!v || !("IntersectionObserver" in window)) return;
+    new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) v.play().catch(() => {});
+        else v.pause();
+      });
+    }, { threshold: 0.25 }).observe(v);
+  }
+
   function initReviewsFallback() {
     const widget = $("#reviewsWidget");
     const empty = $("#reviewsEmpty");
@@ -395,6 +408,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     applyConfig();
     initReviewsFallback();
+    initJourneyVideo();
     initNav();
     buildGallery();
     initModals();
