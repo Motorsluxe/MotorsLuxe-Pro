@@ -304,8 +304,8 @@ section[id], [id] { scroll-margin-top: 92px; }
 .link-more:hover { color: var(--gold); } .link-more:hover i { transform: translateX(5px); }
 
 /* ---------------------------------------------------------------- before/after */
-.ba-wrap { max-width: 1000px; margin: 0 auto; }
-.ba-slider { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; user-select: none; border: 1px solid var(--line-soft); cursor: ew-resize; }
+.ba-wrap { max-width: 640px; margin: 0 auto; }
+.ba-slider { position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; user-select: none; border: 1px solid var(--line-soft); cursor: ew-resize; }
 .ba-img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; border: none; }
 .ba-before { width: 100%; clip-path: inset(0 50% 0 0); }
 .ba-before::after, .ba-after::after { font-size: 0.8rem; }
